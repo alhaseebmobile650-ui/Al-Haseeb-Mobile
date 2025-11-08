@@ -289,19 +289,19 @@
             justify-content: center;
         }
 
-        /* Hero Section - Optimized for SEO */
+        /* Hero Section - UPDATED DESIGN */
         .hero {
             background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 60px 0;
+            padding: 80px 0;
             text-align: center;
             position: relative;
             overflow: hidden;
             display: flex;
             align-items: center;
-            min-height: 70vh;
+            min-height: 85vh;
         }
 
         .hero::before {
@@ -316,47 +316,51 @@
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
-            background: rgba(15, 23, 42, 0.7);
-            padding: 40px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 50px 40px;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
             text-align: center;
             transform: translateY(0);
             transition: all 0.5s ease;
+            color: var(--dark);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
         }
 
         .hero-content:hover {
             transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.4);
         }
 
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 20px;
-            font-weight: 700;
+            font-weight: 800;
             line-height: 1.2;
-            background: linear-gradient(135deg, #ffffff, #f59e0b);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .hero p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+            color: var(--gray);
             line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 15px;
+            gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
         }
@@ -364,10 +368,10 @@
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             background-color: var(--accent);
             color: white;
-            padding: 14px 32px;
+            padding: 16px 36px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
@@ -375,6 +379,7 @@
             border: none;
             cursor: pointer;
             box-shadow: 0 4px 6px rgba(245, 158, 11, 0.3);
+            font-size: 1.05rem;
         }
 
         .btn:hover {
@@ -389,13 +394,13 @@
 
         .btn-outline {
             background-color: transparent;
-            border: 2px solid var(--accent);
-            color: var(--accent);
+            border: 2px solid var(--primary);
+            color: var(--primary);
             box-shadow: none;
         }
 
         .btn-outline:hover {
-            background-color: var(--accent);
+            background-color: var(--primary);
             color: white;
         }
 
@@ -407,6 +412,33 @@
         .btn-primary:hover {
             background-color: var(--primary-dark);
             box-shadow: 0 10px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Hero Stats */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 5px;
         }
 
         /* Features Section */
@@ -572,11 +604,14 @@
             background: #f8fafc;
         }
 
+        /* Optimized product image styling for mobile */
         .product-img img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain; /* Changed from cover to contain for better mobile display */
             transition: transform 0.5s ease;
+            padding: 10px; /* Added padding for better appearance */
+            max-width: 100%;
         }
 
         .product-card:hover .product-img img {
@@ -719,11 +754,13 @@
             z-index: 1;
         }
 
+        /* Optimized about image for mobile */
         .about-image img {
             width: 100%;
             height: auto;
             display: block;
             transition: transform 0.5s ease;
+            max-width: 100%;
         }
 
         .about-image:hover img {
@@ -982,7 +1019,7 @@
             }
             
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
             .about-features {
@@ -1022,12 +1059,12 @@
             }
             
             .hero {
-                padding: 50px 0;
-                min-height: 60vh;
+                padding: 60px 0;
+                min-height: 70vh;
             }
             
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 2.2rem;
             }
             
             .section-title h2 {
@@ -1047,6 +1084,24 @@
                 width: 100%;
                 max-width: 250px;
             }
+            
+            .hero-stats {
+                gap: 20px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            /* Mobile-specific image optimizations */
+            .product-img {
+                height: 180px; /* Slightly smaller on mobile */
+            }
+            
+            .about-image img {
+                max-height: 300px; /* Limit height on mobile */
+                object-fit: cover;
+            }
         }
 
         @media (max-width: 576px) {
@@ -1059,7 +1114,7 @@
             }
             
             .hero h1 {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
             
             .category-tabs {
@@ -1082,6 +1137,34 @@
             
             .logo-text p {
                 font-size: 0.7rem;
+            }
+            
+            .hero-stats {
+                gap: 15px;
+            }
+            
+            .stat {
+                flex: 1;
+                min-width: 120px;
+            }
+            
+            .stat-number {
+                font-size: 1.8rem;
+            }
+            
+            .stat-label {
+                font-size: 0.8rem;
+            }
+            
+            /* Further mobile image optimizations */
+            .product-img {
+                height: 160px; /* Even smaller on very small screens */
+            }
+            
+            .feature-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -1143,12 +1226,26 @@
                 <h1>Premium Mobiles & Laptops in Pakistan</h1>
                 <p>Your trusted destination for the latest smartphones, laptops, and accessories in Pakistan. All Pakistan delivery available with warranty and PTA approved devices.</p>
                 <div class="hero-buttons">
-                    <a href="#products" class="btn">
+                    <a href="#products" class="btn btn-primary">
                         <i class="fas fa-shopping-bag"></i> Shop Now
                     </a>
                     <a href="#contact" class="btn btn-outline">
                         <i class="fas fa-map-marker-alt"></i> Visit Store
                     </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">5000+</span>
+                        <span class="stat-label">Happy Customers</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">PTA Approved</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Customer Support</span>
+                    </div>
                 </div>
             </div>
         </div>
