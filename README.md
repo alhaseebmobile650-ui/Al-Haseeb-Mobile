@@ -214,6 +214,47 @@
             transform: translateX(-3px);
         }
 
+        /* Shopping Cart Icon */
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.1);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .cart-icon:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .cart-icon i {
+            font-size: 1.3rem;
+            color: white;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--accent);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
         /* Navigation */
         nav {
             background-color: white;
@@ -412,6 +453,16 @@
         .btn-primary:hover {
             background-color: var(--primary-dark);
             box-shadow: 0 10px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-success {
+            background-color: var(--success);
+            box-shadow: 0 4px 6px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-success:hover {
+            background-color: #0da271;
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4);
         }
 
         /* Hero Stats */
@@ -670,6 +721,214 @@
             padding: 12px;
             font-size: 0.9rem;
             justify-content: center;
+        }
+
+        /* Cart Modal */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 450px;
+            height: 100%;
+            background: white;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 2000;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-modal.active {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #e2e8f0;
+            background: var(--light);
+        }
+
+        .cart-header h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+            transition: all 0.3s ease;
+        }
+
+        .close-cart:hover {
+            color: var(--danger);
+        }
+
+        .cart-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            background: var(--light);
+            border: 1px solid #e2e8f0;
+        }
+
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .cart-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .cart-item-price {
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            border-radius: 8px;
+            padding: 5px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quantity-btn {
+            background: none;
+            border: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .quantity-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .quantity {
+            font-weight: 600;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: var(--danger);
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .remove-item:hover {
+            transform: scale(1.1);
+        }
+
+        .cart-footer {
+            padding: 20px;
+            border-top: 1px solid #e2e8f0;
+            background: var(--light);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .cart-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--gray);
+        }
+
+        .empty-cart i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #cbd5e1;
+        }
+
+        /* Overlay for modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1500;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
         }
 
         /* About Section */
@@ -1093,6 +1352,10 @@
                 font-size: 2rem;
             }
             
+            .cart-modal {
+                max-width: 100%;
+            }
+            
             /* Mobile-specific image optimizations */
             .product-img {
                 height: 180px; /* Slightly smaller on mobile */
@@ -1156,6 +1419,15 @@
                 font-size: 0.8rem;
             }
             
+            .cart-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .cart-item-img {
+                align-self: center;
+            }
+            
             /* Further mobile image optimizations */
             .product-img {
                 height: 160px; /* Even smaller on very small screens */
@@ -1194,6 +1466,10 @@
                     </a>
                 </div>
                 <div class="nav-actions">
+                    <div class="cart-icon" id="cartIcon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <div class="cart-count" id="cartCount">0</div>
+                    </div>
                     <div class="mobile-menu" id="mobileMenu" aria-label="Toggle navigation menu">
                         <i class="fas fa-bars"></i>
                     </div>
@@ -1452,6 +1728,36 @@
             </div>
         </div>
     </footer>
+
+    <!-- Cart Modal -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Shopping Cart</h3>
+            <button class="close-cart" id="closeCart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-body">
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be loaded here by JavaScript -->
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">PKR 0</span>
+            </div>
+            <div class="cart-actions">
+                <button class="btn btn-primary" id="checkoutBtn">
+                    <i class="fas fa-credit-card"></i> Checkout
+                </button>
+                <button class="btn btn-outline" id="continueShoppingBtn">
+                    <i class="fas fa-shopping-bag"></i> Continue Shopping
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Toast Notification -->
     <div class="toast toast-info" id="toast">
@@ -1777,6 +2083,7 @@
         ];
 
         let currentCategory = 'all';
+        let cart = [];
 
         // DOM Elements
         const productsGrid = document.getElementById('productsGrid');
@@ -1786,15 +2093,39 @@
         const toastMessage = document.getElementById('toastMessage');
         const mobileMenu = document.getElementById('mobileMenu');
         const navLinks = document.querySelector('.nav-links');
+        const cartIcon = document.getElementById('cartIcon');
+        const cartCount = document.getElementById('cartCount');
+        const cartModal = document.getElementById('cartModal');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const closeCart = document.getElementById('closeCart');
+        const cartItems = document.getElementById('cartItems');
+        const cartTotal = document.getElementById('cartTotal');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        const continueShoppingBtn = document.getElementById('continueShoppingBtn');
 
         // Initialize the website
         function init() {
+            loadCart();
             renderProducts();
             setupEventListeners();
             setupScrollEffects();
+            updateCartUI();
             
             // Log page view for analytics
             console.log('Al Haseeb Mobile website loaded successfully');
+        }
+
+        // Load cart from localStorage
+        function loadCart() {
+            const savedCart = localStorage.getItem('alhaseebCart');
+            if (savedCart) {
+                cart = JSON.parse(savedCart);
+            }
+        }
+
+        // Save cart to localStorage
+        function saveCart() {
+            localStorage.setItem('alhaseebCart', JSON.stringify(cart));
         }
 
         // Render products based on current category
@@ -1826,7 +2157,9 @@
                             ${product.features.map(feature => `<li><i class="fas fa-check"></i> ${feature}</li>`).join('')}
                         </ul>
                         <div class="product-actions">
-                            <!-- Only Buy Now button remains -->
+                            <button class="btn btn-success add-to-cart" data-id="${product.id}">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
                             <button class="btn btn-primary buy-now" data-id="${product.id}">
                                 <i class="fas fa-bolt"></i> Buy Now
                             </button>
@@ -1836,13 +2169,156 @@
                 productsGrid.appendChild(productCard);
             });
             
+            // Add event listeners to the Add to Cart buttons
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const productId = parseInt(e.currentTarget.getAttribute('data-id'));
+                    addToCart(productId);
+                });
+            });
+            
             // Add event listeners to the Buy Now buttons
             document.querySelectorAll('.buy-now').forEach(button => {
                 button.addEventListener('click', (e) => {
                     const productId = parseInt(e.currentTarget.getAttribute('data-id'));
-                    openWhatsAppOrder(productId);
+                    addToCart(productId);
+                    openCart();
                 });
             });
+        }
+
+        // Add product to cart
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    quantity: 1
+                });
+            }
+            
+            saveCart();
+            updateCartUI();
+            showToast(`${product.name} added to cart!`, 'success');
+        }
+
+        // Remove product from cart
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            saveCart();
+            updateCartUI();
+            renderCartItems();
+        }
+
+        // Update product quantity in cart
+        function updateQuantity(productId, change) {
+            const item = cart.find(item => item.id === productId);
+            if (!item) return;
+            
+            item.quantity += change;
+            
+            if (item.quantity <= 0) {
+                removeFromCart(productId);
+            } else {
+                saveCart();
+                updateCartUI();
+                renderCartItems();
+            }
+        }
+
+        // Update cart UI (count and total)
+        function updateCartUI() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            cartCount.textContent = totalItems;
+            cartTotal.textContent = `PKR ${totalPrice.toLocaleString()}`;
+        }
+
+        // Render cart items in the modal
+        function renderCartItems() {
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Your cart is empty</h3>
+                        <p>Add some products to your cart</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            cartItems.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <div class="cart-item-img">
+                        <img src="${item.image}" alt="${item.name}">
+                    </div>
+                    <div class="cart-item-details">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-price">PKR ${item.price.toLocaleString()}</div>
+                        <div class="cart-item-actions">
+                            <div class="quantity-control">
+                                <button class="quantity-btn decrease" data-id="${item.id}">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <span class="quantity">${item.quantity}</span>
+                                <button class="quantity-btn increase" data-id="${item.id}">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <button class="remove-item" data-id="${item.id}">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Add event listeners to cart item buttons
+            document.querySelectorAll('.decrease').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const productId = parseInt(e.currentTarget.getAttribute('data-id'));
+                    updateQuantity(productId, -1);
+                });
+            });
+            
+            document.querySelectorAll('.increase').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const productId = parseInt(e.currentTarget.getAttribute('data-id'));
+                    updateQuantity(productId, 1);
+                });
+            });
+            
+            document.querySelectorAll('.remove-item').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const productId = parseInt(e.currentTarget.getAttribute('data-id'));
+                    removeFromCart(productId);
+                });
+            });
+        }
+
+        // Open cart modal
+        function openCart() {
+            cartModal.classList.add('active');
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            renderCartItems();
+        }
+
+        // Close cart modal
+        function closeCartModal() {
+            cartModal.classList.remove('active');
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
         }
 
         // Setup event listeners
@@ -1870,6 +2346,34 @@
                 link.addEventListener('click', () => {
                     navLinks.classList.remove('active');
                 });
+            });
+            
+            // Cart icon
+            cartIcon.addEventListener('click', openCart);
+            
+            // Close cart
+            closeCart.addEventListener('click', closeCartModal);
+            modalOverlay.addEventListener('click', closeCartModal);
+            
+            // Continue shopping button
+            continueShoppingBtn.addEventListener('click', closeCartModal);
+            
+            // Checkout button
+            checkoutBtn.addEventListener('click', () => {
+                if (cart.length === 0) {
+                    showToast('Your cart is empty!', 'error');
+                    return;
+                }
+                
+                const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                const itemsList = cart.map(item => `${item.name} (Qty: ${item.quantity})`).join(', ');
+                
+                const message = `Hello, I want to place an order for the following items:\n${itemsList}\nTotal: PKR ${totalPrice.toLocaleString()}\nPlease process my order.`;
+                const encodedMessage = encodeURIComponent(message);
+                const whatsappURL = `https://wa.me/923278175005?text=${encodedMessage}`;
+                
+                window.open(whatsappURL, '_blank');
+                showToast('Opening WhatsApp to complete your order', 'info');
             });
         }
 
@@ -1906,30 +2410,6 @@
             
             // Trigger scroll event to check initial positions
             window.dispatchEvent(new Event('scroll'));
-        }
-
-        // WhatsApp Order Function
-        function openWhatsAppOrder(productId) {
-            const product = products.find(p => p.id === productId);
-            const whatsappNumber = "923278175005"; // Use your actual number here
-            
-            // Create the message
-            const message = `Hello, I want to buy ${product.name} - Price: PKR ${product.price.toLocaleString()}. Please process my order.`;
-            
-            // Encode the message for URL
-            const encodedMessage = encodeURIComponent(message);
-            
-            // Create WhatsApp URL
-            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-            
-            // Open WhatsApp in a new tab
-            window.open(whatsappURL, '_blank');
-            
-            // Show confirmation
-            showToast(`Opening WhatsApp to order ${product.name}`, 'info');
-            
-            // Track conversion for analytics
-            console.log(`Product ordered: ${product.name}`);
         }
 
         // Toast notification
